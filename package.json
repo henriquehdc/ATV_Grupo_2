@@ -1,0 +1,12 @@
+{
+  "name": "atv_grupo_2",
+  "version": "1.0.0",
+  "description": "Repositório referente ao trabalho em Grupo 2 da matéria de Computação Cognitiva",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
