@@ -1,3 +1,4 @@
+using System.Reflection;
 using System.Text;
 
 namespace Projeto {
@@ -219,23 +220,16 @@ namespace Projeto {
 
 			return formasIndividuais;
 		}
-			public static unsafe bool ValidarGabarito(List<Forma> formasIndividuais, List<(int x0, int y0 , int x1 ,int y1)> coordenadas) {
-				int quadrados_validacao=0;
-				for(int y = 0; y<formasIndividuais.Count; y++){
-					for(int x = 0; x<coordenadas.Count; x++){
-						if(formasIndividuais[y].FazInterseccao(coordenadas[x].x0, coordenadas[x].y0, coordenadas[x].x1, coordenadas[x].y1)){
-							if(formasIndividuais[y].Area>2000){
-							quadrados_validacao++;
-							}
-						}
+		public static unsafe bool ValidarBola(List<Forma> formasIndividuais, int altura, int largura) {
+			bool bola_existe=false;
+			for(int y = 0; y<formasIndividuais.Count; y++){
+				if(formasIndividuais[y].FazInterseccao(largura/2, 0, largura, altura)){
+					if(formasIndividuais[y].Area>=5500 && formasIndividuais[y].Area<=8500){
+						bola_existe = true;
 					}
 				}
-
-			if(quadrados_validacao == 6){
-				return true;
-			}else{
-				return false;
 			}
+			return bola_existe;
 		}
 
 		public int Area, X0, Y0, X1, Y1, CentroX, CentroY;
